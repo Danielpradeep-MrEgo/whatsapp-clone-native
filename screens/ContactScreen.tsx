@@ -5,15 +5,15 @@ import EditScreenInfo from "../components/EditScreenInfo";
 import NewMessage from "../components/NewMessageButton/NewMessage";
 import { Text, View } from "../components/Themed";
 import chatRooms from "../constants/data/ChatRooms";
+import user from "../constants/data/Users";
 
-export default function ChatScreen() {
+export default function ContactScreen() {
 	return (
 		<View style={styles.container}>
-			{/* <ChatListItem chatRoom={chatRooms[0]} /> */}
 			<FlatList
 				style={{ width: "100%" }}
 				data={chatRooms}
-				renderItem={({ item }) => <ChatListItem chatRoom={item} />}
+				renderItem={({ item }) => <ChatListItem user={item} />}
 				keyExtractor={(item) => item.id}
 			/>
 			<NewMessage />
@@ -26,14 +26,5 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	title: {
-		fontSize: 20,
-		fontWeight: "bold",
-	},
-	separator: {
-		marginVertical: 30,
-		height: 1,
-		width: "80%",
 	},
 });
